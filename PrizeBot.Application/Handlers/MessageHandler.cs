@@ -7,9 +7,9 @@ namespace PrizeBot.Application.Handlers;
 
 public class MessageHandler : ITelegramUpdateTypeHandler
 {
-    private readonly CommandProcessor _commandProcessor;
+    private readonly ICommandProcessor _commandProcessor;
     
-    public MessageHandler(CommandProcessor commandProcessor)
+    public MessageHandler(ICommandProcessor commandProcessor)
     {
         _commandProcessor = commandProcessor;
     }

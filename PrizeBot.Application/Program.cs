@@ -5,6 +5,7 @@ using PrizeBot.Application.Handlers.Commands;
 using PrizeBot.Application.Services;
 using PrizeBot.Application.Services.Telegram;
 using Telegram.Bot;
+using Telegram.Bot.Polling;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
@@ -29,7 +30,7 @@ IHost host = Host.CreateDefaultBuilder(args)
         services.AddScoped<ITelegramUpdateTypeHandler, MessageHandler>();
         
         //Telegram handlers
-        services.AddScoped<UpdateHandler>();
+        services.AddScoped<IUpdateHandler, UpdateHandler>();
         services.AddScoped<ReceiverService>();
         services.AddHostedService<PollingService>();
     })
