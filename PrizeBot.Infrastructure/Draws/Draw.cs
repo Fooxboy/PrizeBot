@@ -2,11 +2,8 @@
 
 namespace PrizeBot.Infrastructure.Draws;
 
-public class Draw
+public class Draw : BaseEntity
 {
-    [Key]
-    public Guid Id { get; }
-    
     public string Title { get; set; }
     
     public List<Guid> Tickets { get; set; }
@@ -14,4 +11,6 @@ public class Draw
     public DateTime DateStart { get;  set; }
     
     public DateTime? DateEnd { get; set; }
+
+    public override string Table => "draws";
 }

@@ -1,16 +1,15 @@
-using PrizeBot.Application;
 using PrizeBot.Application.Abstractions;
 using PrizeBot.Application.Handlers;
 using PrizeBot.Application.Handlers.Commands;
 using PrizeBot.Application.Services;
 using PrizeBot.Application.Services.Telegram;
+using PrizeBot.Infrastructure.Draws;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
     {
-        services.AddHostedService<Worker>();
         services.AddHttpClient("telegram-bot-client").AddTypedClient<ITelegramBotClient>((httpClient, sp) =>
         {
             TelegramBotClientOptions options = new("TOKEN");
@@ -20,8 +19,12 @@ IHost host = Host.CreateDefaultBuilder(args)
         //other services
         services.AddScoped<SenderService>();
         
+        //repos
+        services.AddScoped<DrawsRepository>();
+        
         //command handlers
         services.AddScoped<ICommandHandler, StartHandler>();
+        services.AddScoped<ICommandHandler, CreateDrawHandler>();
         
         //command processors
         services.AddSingleton<ICommandProcessor, CommandProcessor>();

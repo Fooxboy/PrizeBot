@@ -26,6 +26,6 @@ public class CommandProcessor : ICommandProcessor
             }
         }
 
-        return new() { Error = new ErrorResponse($"Не найдена команда '{command}'", ErrorCode.CommandNotFound) };
+        return new() { Error = new ErrorResponse($"Не найдена команда -{command}-", ErrorCode.CommandNotFound) };
     }
 }

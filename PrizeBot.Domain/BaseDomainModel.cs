@@ -4,8 +4,6 @@ namespace PrizeBot.Domain;
 
 public class BaseDomainModel
 {
-    public Guid Id { get; private set; }
-
     public List<DomainEvent> Events { get; } = new();
 
     public void AddEvent(DomainEvent @event)

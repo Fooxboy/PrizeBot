@@ -19,4 +19,9 @@
         <Link>.dockerignore</Link>
       </Content>
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PrizeBot.Domain\PrizeBot.Domain.csproj" />
+      <ProjectReference Include="..\PrizeBot.Infrastructure\PrizeBot.Infrastructure.csproj" />
+    </ItemGroup>
 </Project>

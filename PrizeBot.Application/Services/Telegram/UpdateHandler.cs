@@ -31,7 +31,9 @@ public class UpdateHandler : IUpdateHandler
 
         if (!response.IsSuccessful)
         {
-            //todo: logging or generate new answer
+            //todo: logging and generate new answer
+
+            return;
         }
 
         if (updateData.Recipient is null) return;

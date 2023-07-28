@@ -10,13 +10,19 @@ public class DrawDomainModel : BaseDomainModel
     
     public DateTime? DateEnd { get; private set; }
 
-    public DrawDomainModel(string title, List<Guid> tickets, DateTime dateStart, DateTime? dateEnd)
+    public DrawDomainModel(string title, DateTime dateStart, DateTime? dateEnd, IEnumerable<Guid>? tickets = null)
     {
         this.Title = title;
-        this.Tickets = tickets;
         this.DateEnd = dateEnd;
         this.DateStart = dateStart;
-        
-        
+
+        if (tickets is null)
+        {
+            this.Tickets = new List<Guid>();
+        }
+        else
+        {
+            this.Tickets = tickets;
+        }
     }
 }

@@ -2,9 +2,8 @@
 
 namespace PrizeBot.Infrastructure.Configuration;
 
-public class ConfigRepository
+public class ConfigRepository : BaseRepository
 {
-    private readonly string pathDb = "bot.db";
     
     public BotConfig GetConfig()
     {
